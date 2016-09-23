@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Quick Utils</title>
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+    <style>
+      html, body{
+        width: 20em;
+        margin: 0;
+        background: #222;
+      }
+    </style>
+  </head>
+  <body ng-app="Utils" ng-controller="rootCtrl">
+    <md-tabs>
+      <md-tab>
+        <md-tab-label>URL Encode</md-tab-label>
+        <md-tab-body>
+          <md-content layout-padding>
+            <md-input-container>
+              <label>Plaintext</label>
+              <textarea ng-model="plain" rows="2"></textarea>
+            </md-input-container>
+          </md-content>
+        </md-tab-body>
+      </md-tab>
+    </md-tabs>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

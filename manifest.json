@@ -1,0 +1,14 @@
+{
+  "name": "Chrome Quick Utils",
+  "manifest_version": 2,
+  "version": "1.0.0",
+  "description": "A handful of quickly accessible utilities for Chrome",
+  "icons": {
+    "128": "icon_96.png"
+  },
+  "browser_action": {
+    "default_title": "Quick Utils",
+    "default_icon": "icon_24.png",
+    "default_popup": "popup.html"
+  }
+}
