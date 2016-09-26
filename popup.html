@@ -6,29 +6,51 @@
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
     <style>
       html, body{
-        width: 20em;
+        min-width: 20em;
+        min-height: 30em;
         margin: 0;
         background: #222;
+      }
+      md-tabs{
+        height: 100%;
       }
     </style>
   </head>
   <body ng-app="Utils" ng-controller="rootCtrl">
     <md-tabs>
       <md-tab>
-        <md-tab-label>URL Encode</md-tab-label>
+        <md-tab-label>Encode</md-tab-label>
         <md-tab-body>
-          <md-content layout-padding>
-            <md-input-container>
+          <form name="encoder" class="md-padding" layout="column">
+            <md-input-container style="width: 100%">
               <label>Plaintext</label>
-              <textarea ng-model="plain" rows="2"></textarea>
+              <textarea ng-model="plain" ng-change="encode()" rows="2" flex></textarea>
             </md-input-container>
-          </md-content>
+            <md-input-container style="width: 100%">
+              <label>Encoded</label>
+              <textarea name="encoded" ng-model="encoded" ng-change="decode()" ng-error="invalid" rows="2" flex></textarea>
+              <div ng-messages="encoder.encoded">
+                <div ng-message="invalid">Invalid String</div>
+              </div>
+            </md-input-container>
+          </form>
+        </md-tab-body>
+      </md-tab>
+      <md-tab>
+        <md-tab-label>Cache</md-tab-label>
+        <md-tab-body>
+          <div layout="column" layout-align="center center">
+            <md-button ng-click="cleanCache()">Clear Cache</md-button>
+            <md-progress-circular ng-show="cleaning" md-mode="indeterminate"></md-progress-circular>
+            <div ng-show="cleaned" class="md-body-2">Cache Cleared</div>
+          </div>
         </md-tab-body>
       </md-tab>
     </md-tabs>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-aria/angular-aria.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
     <script src="bower_components/angular-material/angular-material.js"></script>
     <script src="app.js"></script>
   </body>
